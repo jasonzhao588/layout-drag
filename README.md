@@ -1,16 +1,16 @@
-# test-layout
+# 布局和拖拽测试
 
-## Project setup
+## 项目安装
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 启动本地测试服务
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### 编译打包
 ```
 yarn build
 ```
