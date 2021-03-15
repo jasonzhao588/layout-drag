@@ -58,10 +58,9 @@ export default {
       if (this.steps.length > 1) {
         this.steps.shift()
         this.curStep = this.steps[0]
-        
-        this.curStep.el.style.left = this.curStep.x + 'px'
-        this.curStep.el.style.top = this.curStep.y + 'px'
-        
+        const {el,x,y} = this.curStep
+        el.style.left = x + 'px'
+        el.style.top = y + 'px'
       }else{
         this.initPos()
       }
