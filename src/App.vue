@@ -10,8 +10,8 @@
       </div>
       <!-- 右侧 -->
       <div class="relative" ref="panel2">
-        <div class="rect drag1" :style="pos1"/>
-        <div class="rect drag2" :style="pos2"/>
+        <div class="rect" :style="pos1"/>
+        <div class="rect" :style="pos2"/>
       </div>
     </layout-body>
   </div>
@@ -46,6 +46,7 @@ export default {
         y: 0
       },
       steps: [],
+      curStep: {},
     }
   },
   methods: {
@@ -55,12 +56,11 @@ export default {
     },
     revoke() {
       if (this.steps.length > 1) {
-        this.steps.pop()
-        var prevStep = this.steps[this.steps.length - 1]
-        console.log(prevStep);
-        console.log(this.curEl);
-        prevStep.el.style.left = prevStep.x + 'px'
-        prevStep.el.style.top = prevStep.y + 'px'
+        this.steps.shift()
+        this.curStep = this.steps[0]
+        
+        this.curStep.el.style.left = this.curStep.x + 'px'
+        this.curStep.el.style.top = this.curStep.y + 'px'
         
       }else{
         this.initPos()
@@ -86,10 +86,10 @@ export default {
       
     },
     setStop1(left,top,el) {
-      this.steps.push({x:left,y:top,el:el})
+      this.steps.unshift({x:left,y:top,el:el})
     },
     setStop2(left,top,el) {
-      this.steps.push({x:left,y:top,el:el})
+      this.steps.unshift({x:left,y:top,el:el})
     }
     
   },
